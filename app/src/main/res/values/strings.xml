@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OTP</string>
+    <string name="backend_url"> http://5bf86a5d.ngrok.io</string>
 </resources>
