@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class FragmentPageAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 3;
-    private String tabTitles[] = new String[] { "Tab1", "Tab2", "Tab3" };
+    final int PAGE_COUNT = 2;
+    private String tabTitles[] = new String[] { "Contacts", "Messages"};
     private Context context;
 
     public FragmentPageAdapter(FragmentManager fm, Context context) {
@@ -22,7 +22,17 @@ public class FragmentPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return ContactsFragment.newInstance(position + 1);
+        switch (position)
+        {
+            case 0:
+                return new ContactsFragment();
+            case 1:
+                return new MessagesFragment();
+            default:
+                break;
+        }
+        return null;
+        //return ContactsFragment.newInstance(position + 1);
     }
 
     @Override

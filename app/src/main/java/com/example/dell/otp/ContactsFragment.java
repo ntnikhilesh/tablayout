@@ -13,6 +13,7 @@ public class ContactsFragment extends Fragment {
 
     private int mPage;
 
+    //Getting page no from Adapter
     public static ContactsFragment newInstance(int page) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
@@ -24,15 +25,15 @@ public class ContactsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPage = getArguments().getInt(ARG_PAGE);
+       // mPage = getArguments().getInt(ARG_PAGE);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.contacts_layout, container, false);
-        TextView textView = (TextView) view;
-        textView.setText("Fragment #" + mPage);
+        //TextView textView = (TextView) view;
+        //textView.setText("Fragment #" + mPage);
         return view;
     }
 }
