@@ -1,5 +1,6 @@
 package com.example.dell.otp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -112,6 +114,9 @@ public class ContactsFragment extends Fragment implements RecyclerViewClickListe
 
     @Override
     public void onRowClicked(int position) {
+        //Toast.makeText(getActivity(),"nt",Toast.LENGTH_LONG).show();
+        Intent intent=new Intent(getActivity(),ContactInfo.class);
+        startActivity(intent);
 
     }
 
@@ -119,5 +124,8 @@ public class ContactsFragment extends Fragment implements RecyclerViewClickListe
     public void onViewClicked(View v, int position) {
 
     }
+
+
+
 }
 

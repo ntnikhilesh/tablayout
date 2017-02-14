@@ -43,22 +43,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView tv_ques;
-        public TextView tv_ques_rating;
-        public TextView tv_ques_tags;
-        public ImageView iv_profile_image;
-        public Button button_like;
-        public Button button_share;
+
 
 
         public ViewHolder(View itemView, final RecyclerViewClickListener listener) {
 
             super(itemView);
-            tv_ques = (TextView) itemView.findViewById(R.id.tv_ques);
-            tv_ques_rating = (TextView) itemView.findViewById(R.id.tv_ques_rating);
-            tv_ques_tags = (TextView) itemView.findViewById(R.id.tv_ques_tag);
-            iv_profile_image=(ImageView)itemView.findViewById(R.id.iv_profile_img);
-            button_like=(Button) itemView.findViewById(R.id.button_like);
-            button_share=(Button) itemView.findViewById(R.id.button_share);
+            tv_ques = (TextView) itemView.findViewById(R.id.tv_contact);
 
 
             // handle click event
@@ -72,32 +63,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 }
             });
 
-            tv_ques.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("Ques","");
-                    if(listener != null)
-                        listener.onViewClicked(v, getAdapterPosition());
-                }
-            });
 
-            button_share.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("Share clicked","");
-                    if(listener != null)
-                        listener.onViewClicked(v, getAdapterPosition());
-                }
-            });
-
-            button_like.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("Share clicked","");
-                    if(listener != null)
-                        listener.onViewClicked(v, getAdapterPosition());
-                }
-            });
 
         }
     }
@@ -107,7 +73,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                    int viewType) {
         // create a new view
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.ques_row, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.contact_row, parent, false);
 
         //set listner
         // set the view's size, margins, paddings and layout parameters
@@ -122,45 +88,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         // - replace the contents of the view with that element
            position1=position;
 
-            holder.tv_ques.setText(mDataset.get(position).getTitle());
-            getTags();
-           getImage();
-       //Picasso.with(context).load(mDataset.get(position).getOwner().getProfile_image()).resize(120, 60).into(holder.iv_profile_image);
+            holder.tv_ques.setText("Nikhil T");
 
-            holder.tv_ques_tags.setText(mtags);
-            holder.tv_ques_rating.setText("Rating: " + mDataset.get(position).getScore().toString());
 
     }
 
-    //fetch tags of individual ques
-    public void getTags()
-    {
-        mtags="";
-        String[] tag_list=mDataset.get(position1).getTags();
-        for (int j=0;j<tag_list.length;j++)
-        {
-            Log.d("Tag hub"+j,tag_list[j]);
-            all_tags=tag_list[j];
-            mtags=mtags.concat("# "+all_tags+" , ");
-        }
-    }
 
-    //get profile image
-    public void getImage()
-    {
-        Owner owner=mDataset.get(position1).getOwner();
-        profile_img=owner.getProfile_image();
-        if (profile_img==null) {
-
-            Log.d("No image for item " + position1,"");
-
-        }
-        else
-        {
-            Log.d("Profile image" + position1, profile_img);
-        }
-
-    }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override

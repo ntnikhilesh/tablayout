@@ -15,6 +15,6 @@ public interface ServiceInterface {
     @GET("/questions/unanswered")
     void getUnansweresandroidquestions(@Query("api_key") String api_key, @Query("site") String site, @Query("tagged") String tagged, @Query("order") String order, @Query("sort") String sort, Callback<Questions> responseCallback);
 
-   
+
 
 }
